@@ -1,0 +1,8 @@
+type Brewer {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  brewer: Brewer!
+}
