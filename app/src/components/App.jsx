@@ -4,6 +4,12 @@
 
 import React from 'react';
 
-const App = () => <div>Hello Columbus Frontenv Dev Meetup</div>;
+import Layout from './Layout';
+
+const App = () => (
+  <Layout>
+    <div>Lets do some graphql stuff</div>
+  </Layout>
+);
 
 export default App;
