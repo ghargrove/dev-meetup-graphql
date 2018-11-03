@@ -1,0 +1,17 @@
+{
+  "name": "dev-meetup-graphql",
+  "version": "1.0.0",
+  "description": "Columbus fronted dev meetup GraphQL",
+  "main": "index.js",
+  "repository": "https://github.com/ghargrove/dev-meetup-graphql.git",
+  "author": "Graham Hargrove <ghargrove@orisintel.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.24.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
