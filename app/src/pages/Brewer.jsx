@@ -11,6 +11,10 @@ const getBrewerQuery = gql`
     getBrewer(id: $id) {
       id
       name
+      beers {
+        id
+        name
+      }
     }
   }
 `;
@@ -27,21 +31,30 @@ const Brewer = ({ match: { params: { brewer: id } } }) => (
           );
         }
 
+        const { getBrewer: { name, beers } } = data;
+
         return (
           <Grid item xs={12}>
             <Typography variant="display1">
               Brewer
             </Typography>
             <Typography variant="title">
-                {data.getBrewer.name}
-              </Typography>
-              <Grid container spacing={16} style={{ marginTop: '3em' }}>
-                <Grid item xs={12}>
-                  <Typography variant="display1">
-                    Current Beers Available
-                  </Typography>
-                </Grid>
+              {name}
+            </Typography>
+            <Grid container spacing={16} style={{ marginTop: '3em' }}>
+              <Grid item xs={12}>
+                <Typography variant="display1">
+                  Current Beers Available
+                </Typography>
+                <ul>
+                {
+                  beers.map(beer =>
+                  <li key={beer.id}>{beer.name}</li>
+                  )
+                }
+                </ul>
               </Grid>
+            </Grid>
           </Grid>
         );
       }}

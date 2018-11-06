@@ -1,6 +1,7 @@
 type Brewer {
   id: ID!
   name: String!
+  beers: [Beer]!
 }
 
 input BrewerProps {

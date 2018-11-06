@@ -1,0 +1,5 @@
+type Beer {
+  id: ID!
+  name: String!
+  brewer: Brewer!
+}
