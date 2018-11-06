@@ -13,6 +13,7 @@ type CreateBrewerResponse {
 
 type Query {
   brewers: [Brewer]!
+  getBrewer(id: Int!): Brewer
 }
 
 type Mutation {
