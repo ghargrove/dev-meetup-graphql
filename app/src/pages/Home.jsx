@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import gql from 'graphql-tag';
 import Button from '@material-ui/core/Button';
@@ -11,7 +11,9 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { Link } from 'react-router-dom';
 
-const brewersQuery = gql`
+import BrewerForm from '../components/BrewerForm';
+
+export const brewersQuery = gql`
  {
     brewers {
       id
@@ -36,23 +38,62 @@ const BrewerCard = ({ id, name }) => (
 );
 
 BrewerCard.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
 
-const Home = () => (
-  <Query query={brewersQuery}>
-    {(({ loading, data }) => {
-      if (loading) {
-        return (<div>Loading brewers</div>);
-      }
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showForm: false,
+    };
+  }
 
-      return (
-        <Grid container spacing={16}>
-          {data.brewers.map(brewer => <BrewerCard key={brewer.id} {...brewer} />)}
-        </Grid>
-      );
-    })}
-  </Query>
-);
+  render() {
+    const { showForm } = this.state;
+
+    return (
+      <Query query={brewersQuery}>
+        {(({ loading, data }) => {
+          if (loading) {
+            return (<div>Loading brewers</div>);
+          }
+
+          return (
+            <Fragment>
+              <Grid container spacing={16}>
+                {data.brewers.map(brewer => <BrewerCard key={brewer.id} {...brewer} />)}
+              </Grid>
+              <Grid container spacing={16} style={{ marginTop: '2em' }}>
+                <Grid item xs={6}>
+                  {
+                    !showForm && (
+                      <Button
+                        color="primary"
+                        onClick={() => {
+                          this.setState(({ showForm: sf }) => ({ showForm: !sf }));
+                        }}
+                        size="medium"
+                        variant="outlined"
+                      >
+                        Add New Brewer
+                      </Button>
+                    )
+                  }
+                  { showForm && (
+                    <BrewerForm
+                      onSubmit={() => this.setState({ showForm: false })}
+                    />
+                  )}
+                </Grid>
+              </Grid>
+            </Fragment>
+          );
+        })}
+      </Query>
+    );
+  }
+}
 
 export default Home;

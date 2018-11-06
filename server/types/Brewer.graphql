@@ -3,6 +3,18 @@ type Brewer {
   name: String!
 }
 
+input BrewerProps {
+  name: String!
+}
+
+type CreateBrewerResponse {
+  brewer: Brewer!
+}
+
 type Query {
   brewers: [Brewer]!
+}
+
+type Mutation {
+  createBrewer(brewer: BrewerProps): CreateBrewerResponse
 }
