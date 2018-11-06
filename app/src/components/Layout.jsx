@@ -13,7 +13,7 @@ import Header from './Header';
 const Layout = ({ children }) => (
   <div>
     <Header />
-    <Grid container justify="center" style={{ marginTop: '24px' }}>
+    <Grid container justify="center" spacing={16} style={{ marginTop: '24px' }}>
       <Grid item xs={9}>
         {children}
       </Grid>

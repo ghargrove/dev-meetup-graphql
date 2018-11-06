@@ -16,6 +16,7 @@ module.exports = {
   },
   devServer: {
     contentBase: distDir,
+    historyApiFallback: true,
   },
   devtool: 'inline-source-map',
   mode: 'development',
@@ -31,6 +32,7 @@ module.exports = {
   output: {
     path: distDir,
     filename: '[name].bundle.js',
+    publicPath: '/',
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),

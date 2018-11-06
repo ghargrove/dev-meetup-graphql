@@ -1,15 +1,15 @@
+const cors = require('cors');
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 
 const typeDefs = require('./types');
 const resolvers = require('./resolvers');
-// const models = require('./models');
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   playground: {
-    endpoint: '/server/playground',
+    endpoint: '/playground',
     settings: {
       // 'editor.theme': 'light',
     },
@@ -17,8 +17,9 @@ const server = new ApolloServer({
 });
 
 const app = express();
+app.use(cors());
 
-server.applyMiddleware({ app, path: '/server' });
+server.applyMiddleware({ app, path: '/' });
 
 app.listen(3000, () => {
   console.warn('App is running');
