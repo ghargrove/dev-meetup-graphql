@@ -1,11 +1,13 @@
 type Brewer {
   id: ID!
   name: String!
+  location: String!
   beers: [Beer]!
 }
 
 input BrewerProps {
   name: String!
+  location: String!
 }
 
 type CreateBrewerResponse {

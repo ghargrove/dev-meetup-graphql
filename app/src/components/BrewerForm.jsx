@@ -23,6 +23,7 @@ const BrewerForm = ({ onSubmit }) => (
         data: { brewers: [...brewers, addedBrewer] },
       });
     }}
+    onError={(e) => console.warn(e)}
   >
     {createBrewer => (
       <Formik
@@ -35,10 +36,10 @@ const BrewerForm = ({ onSubmit }) => (
         {({ values, handleChange }) => (
           <Form>
             <Typography variant="h5">Add Brewer</Typography>
-            <FormControl fullWidth style={{ marginTop: '8px' }}>
+            <FormControl fullWidth style={{ margin: '1em 0' }}>
               <TextField type="text" name="name" placeholder="Name" onChange={handleChange} value={values.name} />
             </FormControl>
-            <FormControl fullWidth style={{ marginTop: '8px' }}>
+            <FormControl fullWidth style={{ margin: '1em 0' }}>
               <TextField type="text" name="location" placeholder="Location" onChange={handleChange} value={values.location} />
             </FormControl>
             <Button type="submit" size="small" variant="contained" style={{ marginTop: '8px' }}>Save</Button>

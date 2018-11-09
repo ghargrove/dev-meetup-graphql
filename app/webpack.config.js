@@ -37,7 +37,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: `${srcDir}/index.html`
+      template: `${srcDir}/index.html`,
     }),
   ],
   resolve: {

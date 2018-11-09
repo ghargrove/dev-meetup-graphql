@@ -21,16 +21,30 @@ const server = new ApolloServer({
 models.sequelize.sync({ force: true }).then(() => {
 
   models.sequelize.getQueryInterface().bulkInsert('Brewers', [
-    { name: 'Anheuser-Busch', createdAt: new Date(), updatedAt: new Date() },
-    { name: 'MillerCoors', createdAt: new Date(), updatedAt: new Date() },
-    { name: 'Heineken', createdAt: new Date(), updatedAt: new Date() },
-    { name: 'Pabst Brewing', createdAt: new Date(), updatedAt: new Date() },
+    {
+      name: 'Anheuser-Busch', location: 'St. Louis, MO', createdAt: new Date(), updatedAt: new Date(),
+    },
+    {
+      name: 'MillerCoors', location: 'Chicago, IL', createdAt: new Date(), updatedAt: new Date(),
+    },
+    {
+      name: 'Heineken', location: 'Netherlands', createdAt: new Date(), updatedAt: new Date(),
+    },
+    {
+      name: 'Pabst Brewing', location: 'Los Angeles, CA', createdAt: new Date(), updatedAt: new Date(),
+    },
   ], {});
 
   models.sequelize.getQueryInterface().bulkInsert('Beers', [
-    { brewerId: 1, name: 'Budweiser', createdAt: new Date(), updatedAt: new Date() },
-    { brewerId: 1, name: 'Bud Light', createdAt: new Date(), updatedAt: new Date() },
-    { brewerId: 1, name: 'Natural Light', createdAt: new Date(), updatedAt: new Date() },
+    {
+      brewerId: 1, name: 'Budweiser', createdAt: new Date(), updatedAt: new Date(),
+    },
+    {
+      brewerId: 1, name: 'Bud Light', createdAt: new Date(), updatedAt: new Date(),
+    },
+    {
+      brewerId: 1, name: 'Natural Light', createdAt: new Date(), updatedAt: new Date(),
+    },
   ], {});
 });
 

@@ -4,15 +4,29 @@
  * GraphQL queries
  */
 
-import gql from 'graphql';
+import gql from 'graphql-tag';
 
 export const brewersQuery = gql`
  {
     brewers {
       id
       name
+      location
     }
  }
+`;
+
+export const getBrewerQuery = gql`
+  query($id: Int!) {
+    getBrewer(id: $id) {
+      id
+      name
+      beers {
+        id
+        name
+      }
+    }
+  }
 `;
 
 export const createBrewerMutation = gql`
@@ -21,6 +35,7 @@ export const createBrewerMutation = gql`
       brewer {
         id
         name
+        location
       }
     }
   }

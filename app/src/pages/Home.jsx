@@ -13,12 +13,15 @@ import { Link } from 'react-router-dom';
 import BrewerForm from '../components/BrewerForm';
 import { brewersQuery } from '../queries';
 
-const BrewerCard = ({ id, name }) => (
+const BrewerCard = ({ id, name, location }) => (
   <Grid item xs={6} md={4}>
     <Card>
       <CardContent>
         <Typography variant="h6">
           {name}
+        </Typography>
+        <Typography variant="caption">
+          {location}
         </Typography>
       </CardContent>
       <CardActions>
@@ -31,6 +34,7 @@ const BrewerCard = ({ id, name }) => (
 BrewerCard.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 class Home extends React.Component {

@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Brewer = sequelize.define('Brewer', {
     name: DataTypes.STRING,
+    location: DataTypes.STRING,
   }, {});
 
   Brewer.associate = (models) => {
