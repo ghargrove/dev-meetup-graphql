@@ -3,3 +3,12 @@ type Beer {
   name: String!
   brewer: Brewer!
 }
+
+type RemoveBeerResponse {
+  beerId: ID
+  success: Boolean!
+}
+
+type Mutation {
+  removeBeer(brewerId: Int!, beerId: Int!): RemoveBeerResponse!
+}

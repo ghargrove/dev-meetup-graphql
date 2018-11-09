@@ -40,3 +40,12 @@ export const createBrewerMutation = gql`
     }
   }
 `;
+
+export const removeBeerMutation = gql`
+  mutation($brewerId: Int!, $beerId: Int!) {
+    removeBeer(brewerId: $brewerId, beerId: $beerId) {
+      beerId
+      success
+    }
+  }
+`;
