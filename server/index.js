@@ -40,7 +40,7 @@ models.sequelize.sync({ force: true }).then(() => {
       brewerId: 1, name: 'Budweiser', createdAt: new Date(), updatedAt: new Date(),
     },
     {
-      brewerId: 1, name: 'Bud Light', createdAt: new Date(), updatedAt: new Date(),
+      brewerId: 1, name: 'Bud Light', description: 'Delicious light beer', createdAt: new Date(), updatedAt: new Date(),
     },
     {
       brewerId: 1, name: 'Natural Light', createdAt: new Date(), updatedAt: new Date(),

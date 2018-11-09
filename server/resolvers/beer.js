@@ -3,6 +3,18 @@ const models = require('../models');
 
 module.exports = {
   Mutation: {
+    createBeer: async (_, { brewerId, beer }) => {
+      const brewer = await models.Brewer.findByPk(brewerId);
+      if (!brewer) {
+        return { success: false, brewer: null };
+      }
+
+      // Create the beer
+      const newBeer = await models.Beer.create({ ...beer, brewerId: brewer.id }); 
+      const beerJson = { ...newBeer.toJSON(), brewer: brewer.toJSON() };
+
+      return ({ success: true, beer: beerJson });
+    },
     removeBeer: async (_, { brewerId, beerId }) => {
       // Find the brewer
       //

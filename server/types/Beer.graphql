@@ -1,7 +1,18 @@
 type Beer {
   id: ID!
   name: String!
+  description: String
   brewer: Brewer!
+}
+
+input BeerProps {
+  name: String!
+  description: String
+}
+
+type CreateBeerResponse {
+  success: Boolean!
+  beer: Beer
 }
 
 type RemoveBeerResponse {
@@ -10,5 +21,6 @@ type RemoveBeerResponse {
 }
 
 type Mutation {
+  createBeer(brewerId: Int!, beer: BeerProps!): CreateBeerResponse!
   removeBeer(brewerId: Int!, beerId: Int!): RemoveBeerResponse!
 }

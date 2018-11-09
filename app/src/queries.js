@@ -24,6 +24,7 @@ export const getBrewerQuery = gql`
       beers {
         id
         name
+        description
       }
     }
   }
@@ -45,6 +46,20 @@ export const removeBeerMutation = gql`
   mutation($brewerId: Int!, $beerId: Int!) {
     removeBeer(brewerId: $brewerId, beerId: $beerId) {
       beerId
+      success
+    }
+  }
+`;
+
+export const createBeerMutation = gql`
+  mutation($brewerId: Int!, $beer: BeerProps!) {
+    createBeer(brewerId: $brewerId, beer: $beer) {
+      success
+      beer {
+        id
+        name
+        description
+      }
       success
     }
   }
