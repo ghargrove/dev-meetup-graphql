@@ -47,11 +47,9 @@ const Brewer = ({ match: { params: { brewer: id } } }) => (
                   Current Beers Available
                 </Typography>
                 <ul>
-                {
-                  beers.map(beer =>
-                  <li key={beer.id}>{beer.name}</li>
-                  )
-                }
+                  {
+                    beers.map(beer => <li key={beer.id}>{beer.name}</li>)
+                  }
                 </ul>
               </Grid>
             </Grid>

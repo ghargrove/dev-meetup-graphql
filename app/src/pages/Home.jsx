@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 
-import gql from 'graphql-tag';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,15 +11,7 @@ import { Query } from 'react-apollo';
 import { Link } from 'react-router-dom';
 
 import BrewerForm from '../components/BrewerForm';
-
-export const brewersQuery = gql`
- {
-    brewers {
-      id
-      name
-    }
- }
-`;
+import { brewersQuery } from '../queries';
 
 const BrewerCard = ({ id, name }) => (
   <Grid item xs={6} md={4}>
@@ -75,7 +66,6 @@ class Home extends React.Component {
                           this.setState(({ showForm: sf }) => ({ showForm: !sf }));
                         }}
                         size="medium"
-                        variant="outlined"
                       >
                         Add New Brewer
                       </Button>

@@ -1,26 +1,14 @@
 import React from 'react';
 
 import { Formik, Form } from 'formik';
-import gql from 'graphql-tag';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
 
-import { brewersQuery } from '../pages/Home';
-
-const createBrewerMutation = gql`
-  mutation($brewer: BrewerProps!) {
-    createBrewer(brewer: $brewer) {
-      brewer {
-        id
-        name
-      }
-    }
-  }
-`;
+import { brewersQuery, createBrewerMutation } from '../queries';
 
 const BrewerForm = ({ onSubmit }) => (
   <Mutation
@@ -38,7 +26,7 @@ const BrewerForm = ({ onSubmit }) => (
   >
     {createBrewer => (
       <Formik
-        initialValues={{ name: '' }}
+        initialValues={{ name: '', location: '' }}
         onSubmit={(values) => {
           createBrewer({ variables: { brewer: values } })
             .then(onSubmit);
@@ -49,6 +37,9 @@ const BrewerForm = ({ onSubmit }) => (
             <Typography variant="h5">Add Brewer</Typography>
             <FormControl fullWidth style={{ marginTop: '8px' }}>
               <TextField type="text" name="name" placeholder="Name" onChange={handleChange} value={values.name} />
+            </FormControl>
+            <FormControl fullWidth style={{ marginTop: '8px' }}>
+              <TextField type="text" name="location" placeholder="Location" onChange={handleChange} value={values.location} />
             </FormControl>
             <Button type="submit" size="small" variant="contained" style={{ marginTop: '8px' }}>Save</Button>
           </Form>
