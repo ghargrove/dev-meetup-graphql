@@ -12,7 +12,7 @@ import { Query } from 'react-apollo';
 import { getBrewerQuery } from '../queries';
 
 const BeerCard = ({ name, description }) => (
-  <Card style={{ marginBottom: '1em' }}>
+  <Card>
     <CardContent>
       <IconButton style={{ float: 'right' }} variant="fab"><DeleteIcon /></IconButton>
       <Typography variant="h6">{name}</Typography>
@@ -56,7 +56,7 @@ const Brewer = ({ match: { params: { brewer: id } } }) => (
             </Typography>
             <Grid container spacing={16} style={{ marginTop: '3em' }}>
               <Grid item xs={12}>
-                <Typography variant="display1" style={{ marginBottom: '1em' }}>
+                <Typography variant="display1">
                   Beers on Tap
                 </Typography>
               </Grid>
