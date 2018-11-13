@@ -15,7 +15,7 @@ Start express & webpack-dev-server
 
 `yarn dev`
 
-Your web UI will now be available on [localhost:8080](localhost:8080). And the API can be accessed using a [Playground](http://localhost:3000/playground)
+Your web UI will now be available on [localhost:8080](http://localhost:8080). And the API can be accessed using a [Playground](http://localhost:3000/playground)
 
 #### View app status
 
