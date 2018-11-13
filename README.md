@@ -2,7 +2,7 @@
 
 ----
 ## GraphQL
-GraphQL app & server
+This repo contains a graphql API on express and a fo
 
 ----
 ## Setup
